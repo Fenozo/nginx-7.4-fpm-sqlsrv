@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: ./
+      dockerfile: Dockerfile 
+    container_name: programwithgoi-app74
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ../src:/var/www
+    ports:
+      - "8004:80"
+  nginx:
+    image: nginx:1.19-alpine
+    container_name: programwithgio-nginx74
+    restart: always
+    ports:
+      - "8005:80"
+    volumes:
+      - ../src:/var/www
+      - ./cond.d:/etc/nginx/conf.d
