@@ -11,7 +11,7 @@ services:
     volumes:
       - ../src:/var/www/html
     ports:
-      - "8005:8080"
+      - "8004:8080"
   nginx:
     image: nginx:1.23-alpine
     container_name: programwithgio-nginx74
