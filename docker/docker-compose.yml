@@ -10,7 +10,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - ../src:/var/www/html
-      - ../php/config/php.ini:/usr/local/etc/php/php.ini
+      - ./php/config:/usr/local/etc/php
     ports:
       - "8004:8080"
   nginx:

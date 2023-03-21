@@ -6,5 +6,6 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
+COPY ./php/config/php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /var/www/html
