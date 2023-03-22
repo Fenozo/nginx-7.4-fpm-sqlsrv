@@ -3,14 +3,14 @@ version: '3.8'
 services:
   app:
     build: 
-      context: ./
-      dockerfile: file/Dockerfile 
+      context: ./docker
+      dockerfile: docker/file/Dockerfile 
     container_name: programwithgoi-app74
     restart: always
     working_dir: /var/www/html
     volumes:
-      - ../src:/var/www/html
-      - ./php/config:/usr/local/etc/php
+      - ./src:/var/www/html
+      - ./docker/php/config:/usr/local/etc/php
     ports:
       - "8004:8080"
   nginx:
@@ -20,5 +20,5 @@ services:
     ports:
       - "8005:8080"
     volumes:
-      - ../src:/var/www/html
-      - ./cond.d:/etc/nginx/conf.d
+      - ./src:/var/www/html
+      - ./docker/cond.d:/etc/nginx/conf.d
