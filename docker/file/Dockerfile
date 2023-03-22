@@ -6,6 +6,11 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
+# Required for msodbcsql17 and mssql-tools
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN apt-get update
+
 # Key might change in the future, replace with new one on the logs
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA6932366A755776
 RUN apt-get update
